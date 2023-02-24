@@ -1,0 +1,11 @@
+secrets:
+  - name: my-app/aurora-postgres-secret
+    generator:
+      username:
+        length: 8
+        charset: standard
+      password:
+        length: 18
+        charset: special
+
+profile: my-profile
