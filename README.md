@@ -5,7 +5,7 @@ A small CLI to automatically generate secrets in your AWS environment.
 
 ## Disclaimer
 
-This tool is not developed by, nor supported by Amazon Web Services, Inc (AWS).
+This tool is not developed, nor supported by Amazon Web Services, Inc (AWS).
 
 ## Description
 
