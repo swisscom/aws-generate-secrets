@@ -91,7 +91,8 @@ func generateSecret(
 	// Secrets in SecretsManager cannot be replaced (grace period of 7 - 30 days)
 	for _, v := range existingSecrets.SecretList {
 		if v.Name != nil && *v.Name == secret.Name {
-			return nil, fmt.Errorf("secret %v exists already: %v", *v.Name, *v.ARN)
+			logger.Warnf("secret %v exists already: %v", *v.Name, *v.ARN)
+			return nil, nil
 		}
 	}
 
