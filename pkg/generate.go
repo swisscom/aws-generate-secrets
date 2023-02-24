@@ -59,6 +59,11 @@ func Do(inputFile string, awsProfileOverride string) error {
 			return err
 		}
 
+		if createdSecret == nil {
+			// We didn't create a secret
+			continue
+		}
+
 		if createdSecret.Name != nil && createdSecret.ARN != nil {
 			logger.Infof("Secret created: %v (%v)", *createdSecret.Name, *createdSecret.ARN)
 		}
