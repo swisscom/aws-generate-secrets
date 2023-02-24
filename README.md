@@ -51,7 +51,7 @@ make build
 You can directly install the CLI by running:
 
 ```
-go install github.com/swisscom/aws-generate-secrets/cmd@latest
+go install github.com/swisscom/aws-generate-secrets@latest
 ```
 
 ## Running
