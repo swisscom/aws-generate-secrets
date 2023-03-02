@@ -3,7 +3,7 @@ secrets:
     generator:
       username:
         length: 8
-        charset: standard
+        charset: lowercase
       password:
         length: 18
         charset: special

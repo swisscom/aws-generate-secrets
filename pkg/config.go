@@ -9,8 +9,9 @@ type GeneratorConfig struct {
 type Charset string
 
 const (
-	CharsetStd     Charset = "standard"
-	CharsetSpecial Charset = "special"
+	CharsetStd       Charset = "standard"
+	CharsetSpecial   Charset = "special"
+	CharsetLowercase Charset = "lowercase"
 )
 
 type Secret struct {

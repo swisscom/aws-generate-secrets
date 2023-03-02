@@ -13,6 +13,7 @@ import (
 	"os"
 )
 
+var LowerCaseChars = []byte("abcdefghijklmnopqrstuvwxyz0123456789")
 var SpecialChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=[]{};,./?")
 
 var logger = logrus.New()
@@ -139,6 +140,8 @@ func generateSecretContent(m map[string]string, secret Secret) error {
 func GenerateSecretString(v GeneratorConfig) string {
 	if len(v.Chars) == 0 {
 		switch v.Charset {
+		case CharsetLowercase:
+			return uniuri.NewLenChars(v.Length, LowerCaseChars)
 		case CharsetStd:
 			return uniuri.NewLenChars(v.Length, uniuri.StdChars)
 		case CharsetSpecial:

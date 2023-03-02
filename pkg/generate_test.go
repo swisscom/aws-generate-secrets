@@ -2,10 +2,9 @@ package generatesecrets_test
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	generatesecrets "github.com/swisscom/aws-generate-secrets/pkg"
-	"os"
+	"strings"
 	"testing"
 )
 
@@ -25,8 +24,12 @@ func TestGenerateSecretString(t *testing.T) {
 	assert.Len(t, theSecret2, 8)
 }
 
-func TestDo(t *testing.T) {
-	generatesecrets.SetLogLevel(logrus.DebugLevel)
-	err := generatesecrets.Do("../resources/examples/postgres.yaml", os.Getenv("AWS_PROFILE"))
-	assert.Nil(t, err)
+func TestGenerateLowercaseSecretString(t *testing.T) {
+	theSecret := generatesecrets.GenerateSecretString(generatesecrets.GeneratorConfig{
+		Length:  10,
+		Charset: "lowercase",
+	})
+	fmt.Printf("generated=%v\n", theSecret)
+	assert.Len(t, theSecret, 10)
+	assert.Equal(t, strings.ToLower(theSecret), theSecret)
 }
